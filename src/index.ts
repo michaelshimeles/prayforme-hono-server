@@ -95,16 +95,20 @@ app.post("/create-request", async (c) => {
     });
 
     if (moderation?.results?.[0]?.flagged) {
-      const result = await db.insert(moderatedRequests).values({
-        message: request!,
-        ip_address: "",
-        device: userAgent!,
-        location: location,
-        request_id: requestId!,
-      });
+      const result = await db
+        .insert(moderatedRequests)
+        .values({
+          message: request!,
+          ip_address: "",
+          device: userAgent!,
+          location: location,
+          request_id: requestId!,
+        })
+        .returning();
 
       return c.json({
         result,
+        flagged: true,
       });
     }
 
