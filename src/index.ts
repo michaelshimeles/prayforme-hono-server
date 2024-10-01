@@ -60,8 +60,6 @@ app.post("/pray-tap", async (c) => {
 
     const { requestId, numOfPrayers } = await c.req.json();
 
-    console.log("requestId", requestId);
-
     const result = await db
       .update(requests)
       .set({
