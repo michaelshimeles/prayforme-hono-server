@@ -1,7 +1,9 @@
-name = "hono-server"
+name = "prayforme-server"
 compatibility_date = "2024-09-29"
 compatibility_flags = [ "nodejs_compat" ]
 
+[observability]
+enabled = true
 # [vars]
 # MY_VAR = "my-variable"
 
