@@ -2,10 +2,10 @@ import { Pool } from "@neondatabase/serverless";
 import { desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { Hono } from "hono";
+import { bearerAuth } from "hono/bearer-auth";
 import { cors } from "hono/cors";
 import OpenAI from "openai";
 import { moderatedRequests, requests } from "./db/schema";
-import { bearerAuth } from "hono/bearer-auth";
 
 export type Env = {
   DATABASE_URL: string;
